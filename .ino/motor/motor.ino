@@ -1,11 +1,12 @@
 #include <AntaresESP32HTTP.h>
+#include <WiFi.h>
 
 #define ACCESSKEY "9634da50ff7abd7a:3bdb608765b907a4"       // Ganti dengan access key akun Antares anda
-#define WIFISSID "Redmi"         // Ganti dengan SSID WiFi anda
-#define PASSWORD "123456789"     // Ganti dengan password WiFi anda
-
 #define projectName "FlowSensorProject"   // Ganti dengan application name Antares yang telah dibuat
 #define deviceName "motor"     // Ganti dengan device Antares yang telah dibuat
+
+const char* ssid = "BigYellow";
+const char* password = "thethepooh71";
 
 AntaresESP32HTTP antares(ACCESSKEY);
 
@@ -23,7 +24,19 @@ int dutyCycle = 200;
 void setup() {
   Serial.begin(115200);
   antares.setDebug(true);
-  antares.wifiConnection(WIFISSID,PASSWORD);
+    Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  // Print local IP address and start web server
+  Serial.println("");
+  Serial.println("WiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
   
   // sets the pins as outputs:
   pinMode(motor1Pin1, OUTPUT);

@@ -1,4 +1,5 @@
 import {registerSW} from './register-sw.js';
+import {reqData} from './makerequest.js';
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -42,6 +43,31 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 	loadNav();
 
+	const getMotorSpeed = () => {
+		let display
+		reqData('motor', 'get')
+			.then((result) => {
+				let data = JSON.parse(JSON.parse(result))
+				data = JSON.parse(data["m2m:cin"].con)
+				$('#takeSpeed').attr("value",data["speed"]);
+				let count = data["speed"] / 1.416;
+				$('.needle')[0].style.transform = `rotate(${count}deg)`;
+				// if (count < 150){
+				// 	display = "Low Speed";
+				// } else if ((count > 150) && (count < 200)){
+				// 	display = "Medium Speed";
+				// } else {
+				// 	display = "Maximum Speed";
+				// }
+				$('.gauge-center').attr('data-content', display)
+				M.toast({html: "Data updated!"})
+			})
+			.catch((err) => {
+				console.warn(err);
+				M.toast({html: "Error while getting data!"})
+			});
+	}
+
 	const loadPage = (page) => {
 		let xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -55,6 +81,18 @@ document.addEventListener('DOMContentLoaded', function(){
 						fade();
 					} else {
 						fade();
+						getMotorSpeed();
+						$("#execSpeed").click(function() {
+					        $.ajax({
+							  url: "./scripts/utils/post-motor.php",
+							  method: "POST",
+							  data: {
+							  	"datas": $('#takeSpeed')[0].value
+							}
+							}).then(() => {
+								getMotorSpeed();
+							})
+					    })
 					}
 				} else if(this.status == 404) {
 					content.innerHTML = "<p>Halaman tidak ditemukan.</p>";

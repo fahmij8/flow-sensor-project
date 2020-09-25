@@ -1,7 +1,6 @@
 <?php
-
+  $datas = $_POST['datas'];
   $curl = curl_init();
-
   curl_setopt_array($curl, array(
     CURLOPT_URL => "https://platform.antares.id:8443/~/antares-cse/antares-id/FlowSensorProject/motor",
     CURLOPT_RETURNTRANSFER => true,
@@ -10,7 +9,7 @@
     CURLOPT_TIMEOUT => 30,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => "{\r\n  \"m2m:cin\": {\r\n    \"con\": \"{\\\"speed\\\":5}\"\r\n  }\r\n}",
+    CURLOPT_POSTFIELDS => "{\r\n  \"m2m:cin\": {\r\n    \"con\": \"{\\\"speed\\\":{$datas}}\"\r\n  }\r\n}",
     CURLOPT_HTTPHEADER => array(
       "accept: application/json",
       "cache-control: no-cache",
@@ -23,6 +22,4 @@
   $response = curl_exec($curl);
   curl_close($curl);
   $response = json_encode($response);
-  echo $response;
-
 ?>
