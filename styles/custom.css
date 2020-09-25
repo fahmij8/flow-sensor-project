@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700&family=Nunito:wght@300;400&display=swap');
+body {
+	background-color: #f7f7f7;
+}
+
+.brand-logo {
+	font-family: 'Baloo Tammudu 2', cursive;
+	font-weight: 600;
+	font-size: 30px !important;
+	display: block !important;
+	padding-top: 10px !important;
+	color: #3d405b !important;
+}
+
+.sidenav-trigger div {
+	color: #3d405b !important;
+	font-size: 15px;
+}
+
+.sidenav-trigger div i {
+	border: 2px solid #59595975;
+	display: initial;
+	padding: 6px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.sidenav img {
+	max-height: 200px;
+	margin-top: 20px;
+}
+
+.sidenav li {
+	float: none;
+	line-height: 48px;
+	border-bottom: 1px solid #3d405b50;
+	margin: 0 20px;
+}
+
+.brand-nav {
+	font-family: 'Nunito', sans-serif !important;
+	font-weight: 400!important;
+	font-size: 18px !important;
+	color: #3d405b9c !important;
+}
+
+.brand-nav i {
+	margin-right: 10px;
+}
+
+.topnav {
+	color: #3d405b !important;
+}
+
+.topnav li {
+	margin-top: -4px;
+}
+
+.topnav li a {
+	padding-top: 4px;
+}
+
+.content-starter {
+	margin-top: 20px;
+}
+
+.neumorph {
+	background-color: #cccccc38;
+	border-radius: 20px;
+}
+
+.card-panel {
+	padding: 20px !important;
+}
+
+.device {
+	font-family: 'Baloo Tammudu 2', cursive !important;
+}
+
+.device h1 {
+	margin: 10px 0 15px 0;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.device h2{
+	margin: 10px 0 15px 0;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.refresh i {
+	font-size: 30px;
+	margin-right: 20px;
+	background-color: #00000026;
+	padding: 5px;
+	border-radius: 15px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	--fa-primary-color: limegreen; 
+	--fa-secondary-color: limegreen;
+}
+
+@media screen and (max-width: 524px){
+	.refresh i {
+		margin-top: 15px;
+	}
+}
+
+.refresh i:active {
+	box-shadow: none;
+	transform: translateY(5px);
+}
+
+.device table {
+	font-size: 20px;
+}
+
+
+/* Speedometer */
+
+.wrapper {
+	display: table;
+	margin: 0 auto;
+}
+
+.gauge {
+	font-family: Arial, Helvetica, sans-serif;
+	background: linear-gradient(95deg, #1E9600, #FFF200, #FF0000);
+	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.09), 0 0 35px 5px rgba(255, 255, 255, 0.29);
+	width: 200px;
+	height: 100px;
+	border-radius: 100px 100px 0 0;
+	position: relative;
+	overflow: hidden;
+	/* safari fix */
+	-webkit-transform-style: flat;
+	-webkit-transform: translateZ(0px);
+}
+
+.gauge-center {
+	content: '';
+	color: #fff;
+	width: 60%;
+	height: 60%;
+	background: #15222E;
+	border-radius: 100px 100px 0 0;
+	position: absolute;
+	box-shadow: 0 -13px 15px -10px rgba(0, 0, 0, 0.28);
+	right: 21%;
+	bottom: 0;
+	color: #fff;
+}
+
+.gauge-center::before {
+	/* To be filled by high, low, medium */
+	font-size: 1.5em;
+	width: 100%;
+	padding: 10px 0 0 0;
+	text-align: center;
+	float: left;
+	-webkit-font-smoothing: antialiased;
+}
+
+.gauge-center::after {
+	width: 100%;
+	float: left;
+	opacity: .6;
+	text-align: center;
+}
+
+.needle {
+	width: 78px;
+	height: 7px;
+	background: #15222E;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 5px;
+	position: absolute;
+	bottom: 4px;
+	left: 20px;
+	transform-origin: 100% 4px;
+	/* to be transformed */
+	box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
+}
