@@ -90,6 +90,10 @@ body {
 	font-weight: 400;
 }
 
+.device span{
+	line-height: 40px !important;
+}
+
 .refresh i {
 	font-size: 30px;
 	margin-right: 20px;
