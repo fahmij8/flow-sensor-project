@@ -1,30 +1,32 @@
+// Import Library
 #include <AntaresESP32HTTP.h>
 #include <WiFi.h>
 
-#define ACCESSKEY "9634da50ff7abd7a:3bdb608765b907a4"       // Ganti dengan access key akun Antares anda
-#define projectName "FlowSensorProject"   // Ganti dengan application name Antares yang telah dibuat
-#define deviceName "motor"     // Ganti dengan device Antares yang telah dibuat
+// Define variable for WiFi Setup
+#define ACCESSKEY "9634da50ff7abd7a:3bdb608765b907a4"
+#define projectName "FlowSensorProject" 
+#define deviceName "motor"
 
-const char* ssid = "BigYellow";
-const char* password = "thethepooh71";
+const char* ssid = "";
+const char* password = "";
 
-AntaresESP32HTTP antares(ACCESSKEY);
-
-// Motor A
+// Define variable for DC Motor Setup
 int motor1Pin1 = 27; 
 int motor1Pin2 = 26; 
 int enable1Pin = 14; 
  
-// Setting PWM properties
 const int freq = 30000;
 const int pwmChannel = 0;
 const int resolution = 8;
 int dutyCycle = 200;
 
+AntaresESP32HTTP antares(ACCESSKEY);
+
 void setup() {
+  // Wifi Setup
   Serial.begin(115200);
   antares.setDebug(true);
-    Serial.print("Connecting to ");
+  Serial.print("Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
 
@@ -32,25 +34,20 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  // Print local IP address and start web server
   Serial.println("");
   Serial.println("WiFi connected.");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  Serial.println("========================================");
   
-  // sets the pins as outputs:
+  // DC Motor Setup
   pinMode(motor1Pin1, OUTPUT);
   pinMode(motor1Pin2, OUTPUT);
   pinMode(enable1Pin, OUTPUT);
   
-  // configure LED PWM functionalitites
   ledcSetup(pwmChannel, freq, resolution);
-  
-  // attach the channel to the GPIO to be controlled
   ledcAttachPin(enable1Pin, pwmChannel);
-  
-  // testing
-  Serial.print("Starting control Motor...");
+  Serial.println("Starting control Motor...");
   Serial.println("========================================");
 }
  
