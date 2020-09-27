@@ -1,6 +1,6 @@
 import {registerSW} from './registerSw.js';
 import {fade} from './anims.js';
-import {postData} from './makeRequest.js';
+import {postData} from './makeRequests.js';
 import {getMotorSpeed} from '../component/updateNeedle.js'
 
 document.addEventListener('DOMContentLoaded', function(){

@@ -1,4 +1,4 @@
-import {getData} from '../utils/makeRequest.js';
+import {getData} from '../utils/makeRequests.js';
 const getMotorSpeed = () => {
 	let display
 	getData('motor')
