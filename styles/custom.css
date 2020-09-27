@@ -125,11 +125,11 @@ body {
 
 .wrapper {
 	display: table;
-	margin: 0 auto;
+	margin: 30px auto;
 }
 
 .gauge {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Baloo Tammudu 2', cursive;
 	background: linear-gradient(95deg, #1E9600, #FFF200, #FF0000);
 	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.09), 0 0 35px 5px rgba(255, 255, 255, 0.29);
 	width: 200px;
@@ -161,10 +161,11 @@ body {
 	content: attr(data-content);
 	font-size: 1.5em;
 	width: 100%;
-	padding: 10px 0 0 0;
+	padding: 25px 0 0 0;
 	text-align: center;
 	float: left;
 	-webkit-font-smoothing: antialiased;
+	transition: content 1s;
 }
 
 .gauge-center::after {
@@ -187,5 +188,6 @@ body {
 	left: 20px;
 	transform-origin: 100% 4px;
 	/* to be transformed */
+	transition: transform 1s;
 	box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
 }

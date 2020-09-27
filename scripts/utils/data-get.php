@@ -1,8 +1,9 @@
 <?php
+    $endpoint = $_POST['endpoint'];
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://platform.antares.id:8443/~/antares-cse/antares-id/FlowSensorProject/motor/la",
+        CURLOPT_URL => "{$endpoint}",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,

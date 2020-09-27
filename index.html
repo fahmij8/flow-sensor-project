@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="shortcut icon" type="image/png" href="./assets/icons/Icon-36.png"/>
+  <link rel="apple-touch-icon" type="image/png" href="./assets/icons/Icon-36.png"/>
+  <title>Monitorify</title>
+  <meta name="description" content="IoT Device Monitor"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00897B"/>
+  <link rel="stylesheet" href="./styles/vendor/materialize.css">
+  <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.14.0/css/pro.min.css">
+  <link rel="stylesheet" href="./styles/custom.css">
+  <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="./index.html" class="brand-logo">Monitorify</a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+        <div><i class="fa fa-th-large"></i></div>
+      </a>
+
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul id="nav-mobile" class="sidenav"></ul>
+    </div>
+  </nav>
+  <div class="body-content container"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="./scripts/vendor/materialize.js"></script>
+<script type="module" src="./scripts/utils/navigation.js"></script>
+</html>
