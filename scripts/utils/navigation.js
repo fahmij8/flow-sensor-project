@@ -1,13 +1,14 @@
 import {registerSW} from './registerSw.js';
-import {fade} from './anims.js';
+import {fade, preloader} from './anims.js';
 import {postData} from './makeRequests.js';
-import {getMotorSpeed} from '../component/updateNeedle.js'
+import {getMotorSpeed} from '../component/updateNeedle.js';
+import {getDeviceSequence} from '../component/updateDevice.js';
 
 document.addEventListener('DOMContentLoaded', function(){
 
 	// REGISTER SW
 	// registerSW();
-
+	preloader();
 	fade();
 	let sideNav = document.querySelectorAll('.sidenav');
 	M.Sidenav.init(sideNav);
@@ -45,12 +46,16 @@ document.addEventListener('DOMContentLoaded', function(){
 					content.innerHTML = xhttp.responseText;
 					if(page === "dashboard"){
 						fade();
+						getDeviceSequence();
+						$(".refresh").click(() => {
+							getDeviceSequence();
+						})
 					} else if(page === "log"){
 						fade();
 					} else {
 						fade();
 						getMotorSpeed();
-						$("#execSpeed").click(function() {
+						$("#execSpeed").click(() => {
 							postData($('#takeSpeed')[0].value);
 							setTimeout(() => {
 								getMotorSpeed();

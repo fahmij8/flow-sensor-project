@@ -7,4 +7,21 @@ const fade = () => {
 	}, 1000)
 }
 
-export {fade}
+const preloader = () => {
+	let preWrap = document.getElementsByClassName('lds-wrapper');
+	let preSpin = document.getElementsByClassName('lds-roller');
+
+	// Fade spin 
+	preSpin[0].style.opacity = '0';
+	preSpin[0].style.transition = 'opacity 1s';
+	// Fade Wrapper
+	preWrap[0].style.backgroundColor = '#ffffff00';
+	preWrap[0].style.transition = 'background-color 2s';
+	// Empty element
+	setTimeout(() => {
+		preWrap[0].innerHTML = '';
+		preWrap[0].style = '';
+		preWrap[0].classList = '';
+	}, 900)
+}
+export {fade, preloader}
