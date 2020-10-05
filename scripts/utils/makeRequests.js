@@ -14,7 +14,7 @@ const getData = (destination) => {
         method : "POST" ,
         data: {"endpoint": endpoint},
         success : (res) => {
-            console.log('[Receive] = ', parseData(res))
+            console.log(`[R : ${new Date().toLocaleTimeString()}] = `, parseData(res))
             resolve(parseData(res))
         },
         error : (res) => {
@@ -34,7 +34,7 @@ const postData = (data) => {
         method : "POST" ,
         data: {"data": data},
         success : (res) => {
-        	console.log('[Send] = ', parseData(res))
+        	console.log(`[S : ${new Date().toLocaleTimeString()}] = `, parseData(res))
             resolve(parseData(res))
         },
         error : (res) => {

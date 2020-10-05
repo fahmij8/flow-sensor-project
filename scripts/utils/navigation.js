@@ -1,7 +1,7 @@
 import {registerSW} from './registerSw.js';
 import {fade, preloader} from './anims.js';
 import {postData} from './makeRequests.js';
-import {getMotorSpeed} from '../component/updateNeedle.js';
+import {getMotorSpeed, getFlowSpeed} from '../component/updateNeedle.js';
 import {getDeviceSequence} from '../component/updateDevice.js';
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// REGISTER SW
 	// registerSW();
 	preloader();
-	fade();
+	// fade();
 	let sideNav = document.querySelectorAll('.sidenav');
 	M.Sidenav.init(sideNav);
 	const loadNav = () => {
@@ -53,14 +53,16 @@ document.addEventListener('DOMContentLoaded', function(){
 					} else if(page === "log"){
 						fade();
 					} else {
-						fade();
+						fade("monitor");
 						getMotorSpeed();
+						getFlowSpeed();
 						$("#execSpeed").click(() => {
 							postData($('#takeSpeed')[0].value);
 							setTimeout(() => {
 								getMotorSpeed();
 							}, 2000)
 					    })
+					    getFlowSpeed("continuous");
 					}
 				} else if(this.status == 404) {
 					content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
