@@ -62,7 +62,7 @@ const getFlowSpeed = (arg) => {
 		}
 
 		doHeavyTask({
-		totalMillisAllotted: 99999999 * 1500,
+		totalMillisAllotted: 99999999 * 1000,
 		totalTasks: 99999999,
 		tasksPerTick: 1,
 		task: function(n) { execFlowSpeed(); }

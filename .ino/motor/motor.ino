@@ -5,8 +5,8 @@
 #define projectName "FlowSensorProject"
 #define deviceName "motor"
 
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "BigYellow";
+const char* password = "thethepooh71";
 
 AntaresESP32HTTP antares(ACCESSKEY);
 
